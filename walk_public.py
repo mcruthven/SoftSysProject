@@ -1,8 +1,8 @@
 import os
 import datetime
 
-def walk_sandbox ():
-    """ This function traverses every directory in Sandbox, looks at every
+def walk_public ():
+    """ This function traverses every directory in Public, looks at every
         file, and then writes relevant metadata to a text file.
     """
     
@@ -64,7 +64,7 @@ def walk_sandbox ():
                     
                             
 if __name__ == "__main__":
-    success = walk_sandbox()
+    success = walk_public()
     print success
     
    
