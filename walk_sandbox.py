@@ -27,27 +27,27 @@ def walk_sandbox ():
                 # Grab all the metadata you could ever want.  They were casted
                 # to strings because write() was complaining
                 metadata = os.stat(path_name)
-                protection_bits = str(metadata.st_mode)
-                inode_number = str(metadata.st_ino)
-                num_hard_links = str(metadata.st_nlink)
-                owner_user_id = str(metadata.st_uid)
-                owner_group_id = str(metadata.st_gid)
-                created = str(os.path.getctime(path_name)) # Only works on Windows
-                modified = str(metadata.st_mtime)
-                accessed = str(metadata.st_atime)
-                size = str(metadata.st_size)
+                protection_bits = metadata.st_mode
+                inode_number = metadata.st_ino
+                num_hard_links = metadata.st_nlink
+                owner_user_id = metadata.st_uid
+                owner_group_id = metadata.st_gid
+                created = os.path.getctime(path_name) # Only works on Windows
+                modified = metadata.st_mtime
+                accessed = metadata.st_atime
+                size = metadata.st_size
 
-                write_data = "%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\n" %(datetime.datetime.now(),
-                                                                    path_name,
-                                                                    protection_bits,
-                                                                    inode_number,
-                                                                    num_hard_links,
-                                                                    owner_user_id,
-                                                                    owner_group_id,
-                                                                    created,
-                                                                    modified,
-                                                                    accessed,
-                                                                    size)
+                write_data = "%s|%s|%i|%li|%i|%i|%i|%f|%f|%f|%s\n" %(datetime.datetime.now(),
+                                                                     path_name,
+                                                                     protection_bits,
+                                                                     inode_number,
+                                                                     num_hard_links,
+                                                                     owner_user_id,
+                                                                     owner_group_id,
+                                                                     created,
+                                                                     modified,
+                                                                     accessed,
+                                                                     size)
 
 
                 # write() the data to the text file and print out where we are in
