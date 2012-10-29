@@ -7,7 +7,7 @@ def walk_sandbox ():
     """
     
     # The file name should be changed manually at this point in time
-    text_file = open("soft_sys_public.txt", "a")
+    text_file = open("soft_sys_sandbox.txt", "a")
     
     # os.walk() will recursively walk through all the directories in <root> (in 
     # this case, X:\\) and find all the files in those directories
