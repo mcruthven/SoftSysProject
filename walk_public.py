@@ -59,7 +59,8 @@ def walk_public ():
                 except:
                     print "FAILED TO COMMIT", path_name, "\n"
                     continue
-                
+
+    text_file.close()           
     return True
                     
                             
